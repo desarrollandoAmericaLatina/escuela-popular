@@ -1,0 +1,36 @@
+[submodule "system"]
+	path = system
+	url = http://github.com/kohana/core.git
+[submodule "modules/codebench"]
+	path = modules/codebench
+	url = http://github.com/kohana/codebench.git
+[submodule "modules/database"]
+	path = modules/database
+	url = http://github.com/kohana/database.git
+[submodule "modules/image"]
+	path = modules/image
+	url = http://github.com/kohana/image.git
+[submodule "modules/orm"]
+	path = modules/orm
+	url = http://github.com/kohana/orm.git
+[submodule "modules/auth"]
+	path = modules/auth
+	url = http://github.com/kohana/auth.git
+[submodule "modules/cache"]
+	path = modules/cache
+	url = http://github.com/kohana/cache.git
+[submodule "modules/useradmin"]
+	path = modules/useradmin
+	url = git@github.com:atma/useradmin.git
+[submodule "modules/twig"]
+	path = modules/twig
+	url = git@github.com:atma/ko3-twig-views.git
+[submodule "modules/ipinfo"]
+	path = modules/ipinfo
+	url = git://github.com/atma/kohana-ipinfo.git
+[submodule "modules/oauth"]
+	path = modules/oauth
+	url = git://github.com/kohana/oauth.git
+[submodule "modules/email"]
+	path = modules/email
+	url = git://github.com/atma/kohana-email.git
