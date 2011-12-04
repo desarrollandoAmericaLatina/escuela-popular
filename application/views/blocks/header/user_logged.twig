@@ -1,0 +1,12 @@
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle">{{ user.username }}</a>
+              <ul class="dropdown-menu" style="padding: 10px;">
+                <li>
+                    <a href="{% url "user", {"action": "profile"} %}" title="Editar perfil">Editar perfil</a>
+                </li>
+                <li>
+                    <a href="{% url "user", {"action": "logout"} %}" title="Salir del sistema">Salir</a>
+                </li>
+              </ul>
+            </li>

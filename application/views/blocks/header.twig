@@ -1,0 +1,38 @@
+    <div class="topbar" id="header">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="{{ base_url }}">Escuela Popular</a>
+
+          <ul class="nav">
+            <li class="active"><a href="/">Las Mejores</a></li>
+            <li><a href="/">Las peores</a></li>
+            <li>
+<div style="display: inline-block; margin-left: 20px; margin-top: 6px">
+    <select data-placeholder="Elige ciudad" style="width:250px;" class="chzn-select" id="city_select" tabindex="5">
+        <option value=""></option>
+        {% for region in visited_cities %}
+        <optgroup label="{{ region.full_name }}" data-region-id="{{ region.id }}">
+            {% for city in region.cities %}
+                <option value="{{ city.id }}"{% if city.id == current_city.id %} selected="selected"{% endif %}>{{ city.name }}</option>
+            {% endfor %}
+        </optgroup>
+        {% endfor %}
+    </select>
+</div>
+            </li>
+          </ul>
+          
+          <ul class="nav secondary-nav">
+                  
+{% if user %}
+    {% include 'blocks/header/user_logged.twig' %}
+{% else %}
+    {% include 'blocks/header/user_login.twig' %}
+{% endif %}
+
+          </ul>
+        </div>
+ 
+      </div>
+
+    </div>

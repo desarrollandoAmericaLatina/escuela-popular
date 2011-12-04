@@ -1,0 +1,19 @@
+{% extends "layouts/default.twig" %}
+
+{% block title %}Такси{% endblock %}
+
+{% block body %}
+{% if user %}
+<p>You are logged as {{ username }}</p>
+{% else %}
+<form action="{% url "login" %}" id="login-form" method="post">
+    <input name="username" value="{{ loginform.username }}" placeholder="Имя пользователя" /><br />
+    <input type="password" name="password" value="{{ loginform.password }}" placeholder="Пароль" /><br />
+    <button type="submit">Login</button>
+</form>
+{% endif %}
+
+<a href="{% url "auth_provider", {"provider": "twitter"} %}" >twitter</a><br />
+<a href="{% url "auth_provider", {"provider": "google"} %}" >google</a>
+
+{% endblock %}

@@ -21,6 +21,7 @@
 * If you uses Apache rename example.htaccess to .htaccess
 * Be sure that `/application/cache` and `/application/logs` writeable for the web server user
 * Copy all files in `/application/config/` with extension `.sample` to `.php` with the same name
-* Configure every module in `/application/config/*.php`. For the ipinfo (IP to location) you must obtain the key from [ipinfodb.com](http://ipinfodb.com/account.php). For the oauth and facebook create you must provide keys and secrets from [twitter](https://dev.twitter.com/apps), [facebok](https://developers.facebook.com/apps) or disable this capabilities in `/application/config/useradmin.php`
+* Configure every module in `/application/config/*.php`. For the ipinfo (IP to location) you must obtain the key from [ipinfodb.com](http://ipinfodb.com/account.php). For the oauth and facebook you must provide keys and secrets from [twitter](https://dev.twitter.com/apps), [facebok](https://developers.facebook.com/apps) or disable this capabilities in `/application/config/useradmin.php`
 * Restore the database from `/schema.sql`
-
+* Project contain more than 300Mb of images of chilean schools. Its located at http://demos.atmaworks.com/escuela_photos.zip so download it and unpack to `/media/images/`
+* At this moment there are data for the 1-4 and 13 regions only

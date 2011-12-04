@@ -1,0 +1,22 @@
+{% extends "layouts/default.twig" %}
+
+{% block title %}Elige tu escuela{% endblock %}
+
+{% block body %}
+
+
+<div class="row">
+    <div class="span8">
+        <h2>Escuelas más cercas</h2>
+        <ul class="unstyled">
+            {% for item in closets_schools %}
+                <li><a href="{% url "school/details", {"id": item.id} %}" title="{{ item.name }}"><strong>{{ item.name }}</strong></a><br /> {{ item.dependence }}, {{ item.levels }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="span8">
+        <div id="map_canvas" style="width: 100%; height: 400px"></div>
+    </div>
+</div>
+
+{% endblock %}

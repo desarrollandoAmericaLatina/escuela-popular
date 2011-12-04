@@ -1,0 +1,46 @@
+{% for item in ratings %}
+    <div class="row">
+        <div class="span4">
+            <div class="rating-container-small">
+                <div class="rating-grade-item">
+                    <span class="rating-grade-item-inner rating-grade-espacio_fisico" rel='twipsy' title="Evaluación del espacio físico: {{ item.espacio_fisico|num_format(2) }}" style="height: {{ item.espacio_fisico*20 }}%"></span>
+                </div>
+                <div class="rating-grade-item">
+                    <span class="rating-grade-item-inner rating-grade-seguridad" rel='twipsy' title="Evaluación del nivel de seguridad: {{ item.seguridad|num_format(2) }}" style="height: {{ item.seguridad*20 }}%"></span>
+                </div>
+                <div class="rating-grade-item">
+                    <span class="rating-grade-item-inner rating-grade-instalaciones_educativas" rel='twipsy' title="Evaluación de las instalaciones educativas: {{ item.instalaciones_educativas|num_format(2) }}" style="height: {{ item.instalaciones_educativas*20 }}%"></span>
+                </div>
+                <div class="rating-grade-item">
+                    <span class="rating-grade-item-inner rating-grade-organizacion" rel='twipsy' title="Evaluación de la organización: {{ item.organizacion|num_format(2) }}" style="height: {{ item.organizacion*20 }}%"></span>
+                </div>
+                <div class="rating-grade-item">
+                    <span class="rating-grade-item-inner rating-grade-proceso_educativo" rel='twipsy' title="Evaluación del proceso educativo: {{ item.proceso_educativo|num_format(2) }}" style="height: {{ item.proceso_educativo*20 }}%"></span>
+                </div>
+                <div class="rating-grade-item">
+                    <span class="rating-grade-item-inner rating-grade-valores" rel='twipsy' title="Evaluación de valores: {{ item.valores|num_format(2) }}" style="height: {{ item.valores*20 }}%"></span>
+                </div>
+                <div class="rating-grade-item">
+                    <span class="rating-grade-item-inner rating-grade-otros_recursos" rel='twipsy' title="Evaluación de otros recursos: {{ item.otros_recursos|num_format(2) }}" style="height: {{ item.otros_recursos*20 }}%"></span>
+                </div>
+            </div>
+            <div>
+                Publicado: <span class="label">{{ item.created|date('d m Y, H:i:s') }}</span><br />
+                Por: <span class="label">{{ item.username }}</span>
+
+            </div>
+        </div>
+        <div class="span10">
+            <div class="row">
+                <div class="span5">
+                    <span class="label success">Pros</span><br />
+                    <blockquote>{{ item.pros }}</blockquote>
+                </div>
+                <div class="span5">
+                    <span class="label warning">Cons</span><br />
+                    <blockquote>{{ item.cons }}</blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}

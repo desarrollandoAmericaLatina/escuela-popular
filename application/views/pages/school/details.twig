@@ -1,0 +1,107 @@
+{% extends "layouts/default.twig" %}
+
+{% block title %}School details{% endblock %}
+
+{% block body %}
+        <div class="page-header" >
+          <h1 data-school-name="{{ school.name }}">{{ school.name }} <small>{{ school.dependence }}, {{ school.levels }}</small></h1>
+        </div>
+        <div class="row">
+          <div class="span8" id="school-details">
+          {% if school.address %}
+            <p>
+            <address><strong>Dirección:</strong> {{ school.address }}<br />
+                {% if school.locality %}<strong>Localidad:</strong> {{ school.locality }}<br />{% endif %}
+                <strong>Comuna:</strong> {{ school.commune.name }}<br />
+                <strong>Region:</strong> {{ school.region.name }}
+            </address>
+            </p>
+            {% if school.phone %}<p><strong>Teléfono:</strong> {{ school.phone }}</p>{% endif %} 
+            {% if school.email %}<p><strong>Email:</strong> {% html.mailto school.email %}</p>{% endif %} 
+            {% if school.director %}<p><strong>Director(a):</strong> {{ school.director }}</p>{% endif %} 
+          {% endif %}
+
+          </div>
+          <div class="span8">
+              <h3>Evaluación de {{ school.name }}</h3>
+              <div class="row">
+              {% if school_rating %}
+              <div id="school-rating-result" class="span3">
+{% include 'blocks/rating/big.twig' with {"rating": school_rating} only %}
+              
+              </div>
+              <div class="span5">
+                  <ul class="unstyled">
+                  <li>Espacio físico: <span class="label">{{ school_rating.espacio_fisico|num_format(2) }}</span></li>
+                  <li>Seguridad: <span class="label">{{ school_rating.seguridad|num_format(2) }}</span></li>
+                  <li>Instalaciones educativas: <span class="label">{{ school_rating.instalaciones_educativas|num_format(2) }}</span></li>
+                  <li>Organización: <span class="label">{{ school_rating.organizacion|num_format(2) }}</span></li>
+                  <li>Proceso educativo: <span class="label">{{ school_rating.proceso_educativo|num_format(2) }}</span></li>
+                  <li>Valores: <span class="label">{{ school_rating.valores|num_format(2) }}</span></li>
+                  <li>Otros recursos: <span class="label">{{ school_rating.otros_recursos|num_format(2) }}</span></li>
+                  </ul>
+              </div>
+                      
+              {% else %}
+                  <div class="span8">
+                  School does not rated yet
+                  </div>
+              {% endif %}
+              </div>
+          </div>
+          <hr />
+        </div>
+        <div class="row">
+            <div class="span8" id="informacion-institucional">
+                <h3>Información institucional</h3>
+                {% if school.dependence %}<p><strong>Dependencia:</strong> {{ school.dependence }}</p>{% endif %} 
+                {% if school.area %}<p><strong>Area:</strong> {{ school.area }}</p>{% endif %} 
+                {% if school.education_level %}<p><strong>Nivel de enseñanza: </strong> {{ school.education_level }}</p>{% endif %} 
+                {% if school.enrollment_total %}<p><strong>Matrícula total de alumnos:</strong> {{ school.enrollment_total }}</p>{% endif %} 
+                {% if school.students_per_course_avg %}<p><strong>Promedio alumnos por curso:</strong> {{ school.students_per_course_avg }}</p>{% endif %} 
+                
+                {% if school.enrollment_cost and school.monthly_payment %}
+                <h3>Información de costos</h3>
+                    {% if school.enrollment_cost %}<p><strong>Pago matrícula:</strong> {{ school.enrollment_cost }}</p>{% endif %} 
+                    {% if school.monthly_payment %}<p><strong>Pago mensual por alumno:</strong> {{ school.monthly_payment }}</p>{% endif %} 
+                {% endif %}
+            </div>
+            <div class="span8 school-details">
+                <div id="school-location-map" data-lat="{{ school.latitude }}" data-lng="{{ school.longitude }}" style="width: 450px; height: 250px">
+
+                </div>
+            </div>
+        </div>
+        {% if defaults.use_school_images and school_images.count() %}
+            <h2>Imágenes de {{ school.name }}</h2>
+               <ul class="media-grid">
+            {% for image in school_images %}
+                <li>
+                    <a href="#">
+                        <img class="thumbnail" src="{% thumbnail.get image.rbd~"/"~image.filename, 210, 150 %}" alt="{{ image.name }}">
+                    </a>
+                </li>
+              {% endfor %}
+               </ul>
+        {% endif %}
+
+<div class="row">
+    <div class="span16" id="school-rate-it">
+        {% if is_rated %}
+{% include "blocks/rating/user_rate.twig" with {"school": school, "rating": user_rate} only %}
+        {% else %}
+{% include "blocks/rating/to_rate.twig" with {"school": school} only %}
+        {% endif %}
+        
+    </div>
+</div>
+
+{% if school_ratings %}
+<div class="row">
+    <div class="span15 offset1" id="school-ratings">
+{% include "blocks/rating/users_ratings.twig" with {"ratings": school_ratings} only %}
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}

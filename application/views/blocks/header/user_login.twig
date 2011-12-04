@@ -1,0 +1,29 @@
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle">Entrar</a>
+              <ul class="dropdown-menu" style="padding: 10px;">
+                <li>
+                    <form id="mini-login-form" action="{% url "user", {"action": "login"} %}" method="post">
+                    <div class="clearfix" style="margin-left: 0">
+                        <input name="username" id="mini-login-username" class="span3" value="" placeholder="Nombre de usuario" size="30" maxlength="100" type="text" />
+                    </div>
+                    <div class="clearfix" style="margin-left: 0">
+                        <input name="password" id="mini-login-password" class="span3" value="" placeholder="Contraseña" size="30" maxlength="100" type="password" />
+                    </div>
+                    <div class="clearfix">
+                        <button class="btn primary" type="submit">Entrar</button>
+                    </div>
+                    </form>
+                </li>
+                <li>Entrar usando</li>
+                <li>
+                    <div class="login-providers clearfix">
+                        <a class="login-provider-mini login-provider-mini-twitter" href="{% url "user/provider", {"provider": "twitter"} %}"></a>
+                        <a class="login-provider-mini login-provider-mini-facebook" href="{% url "user/provider", {"provider": "facebook"} %}"></a>
+                        <a class="login-provider-mini login-provider-mini-google" href="{% url "user/provider", {"provider": "google"} %}"></a>
+                    </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+                <a href="{% url "user", {"action": "register"} %}">Registrarse</a>
+            </li>

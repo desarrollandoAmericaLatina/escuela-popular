@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" dir="ltr" lang="es">
+    <head>
+        <meta charset="utf-8"/>
+        <title>{% block title %}{% endblock %} - {{ defaults.site_name }}</title>
+        <meta name="description" content="
+            {%- if meta_description -%}{{ meta_description }}
+            {%- else %}{{ defaults.description }}{% endif -%}
+        "/>
+        
+        <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        
+        {% for key, type in styles %}
+            {% html.style key, {"media": type} %} 
+        {% endfor %}
+        
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        
+        <script>
+            var app = {};
+            app.cfg = {};
+            
+            {% for key, item in app_js_cfg %}
+            app.cfg.{{ key }} = "{{ item }}";
+            {% endfor %}
+                
+            {% if inline_script %}
+                {{ inline_script|raw }}
+            {% endif %}
+                
+        </script>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+        
+        {% for file in scripts %}
+            {% html.script file %}
+        {% endfor %}
+        
+    </head>
+    <body>         
+        {% include 'blocks/header.twig' %}
+        
+      <div class="content" id="content">
+        <div class="container">
+{% block body %}{% endblock %}
+        </div>
+      </div>
+        {{ profiler|raw }}
+    </body>
+</html>

@@ -1,0 +1,17 @@
+<?php defined('SYSPATH') or die('No direct script access.');
+/**
+ * Configuration for ipinfo module.
+ * 
+ * @author Oleh Burkhay <atma@atmaworks.com>
+ */
+return array(
+	/**
+     * ipinfodb key for remote API access
+	 * Can be registered at http://ipinfodb.com/account.php
+	 */
+	'key' => '2e72e9365c6fcb5843fe23ca11075492452fceed9223a8df35e3d0d28c705dae',
+	'cache_time' => 3600*24*30,
+    'default_ip' => '200.89.70.188',//Santiago,CL
+    'use_default' => false,
+	'auto_localize' => true,
+);
