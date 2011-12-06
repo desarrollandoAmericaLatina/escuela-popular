@@ -1,5 +1,10 @@
 # Project developed for an event [desarrollandoamerica/](http://desarrollandoamerica.org/)
 
+## Note:
+
+This project is no longer maintained. The idea of this project will be realized, code will be rewritten from scratch using Symfony2 PHP framework, mongodb instead of MySQL, Google Latitude instead of ipinfodb, school's data will adapted to any country of LatAm and some other improvements. New public repo located on https://github.com/atma/escuela-popular
+New code will be published under the GPL3 license, so feel free to use it on your own needs.
+
 ## Requirements
 
 * PHP 5.2.3 or higher with GD, PDO or mysql, curl, pcre, spl modules enabled
