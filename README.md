@@ -2,8 +2,9 @@
 
 ## Note:
 
-This project is no longer maintained. The idea of this project will be realized, code will be rewritten from scratch using Symfony2 PHP framework, mongodb instead of MySQL, Google Latitude instead of ipinfodb, school's data will adapted to any country of LatAm and some other improvements. New public repo located on https://github.com/atma/escuela-popular
-New code will be published under the GPL3 license, so feel free to use it on your own needs.
+This project is currently freezed (not for a long time). The data still collecting and will be reformated. The goal is to adapt the data for an all LatAm or atleast for the countries where this data is opened and has similar structure.
+
+Part of a code will be rewritten from scratch to make some improvements, e.g. Google Latitude instead of ipinfodb.
 
 ## Requerimientos
 
