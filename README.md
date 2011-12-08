@@ -2,7 +2,7 @@
 
 ## Note:
 
-This project is currently freezed (not for a long time). The data still collecting and will be reformated. The goal is to adapt the data for an all LatAm or at least for the countries where this data is opened, has similar structure and geo position.
+This project currently is frozen (not for a long time). The data still collecting and will be reformated. The goal is to adapt the data for an all LatAm or at least for the countries where this data is opened, has similar structure and geo position.
 
 Part of a code will be rewritten from scratch to make some improvements, e.g. Google Latitude instead of ipinfodb.
 
